@@ -1,0 +1,70 @@
+  --> Hive is a high level language used to run queries on data stored in hadoop
+  --> Hive is a dataware house infrastructure tool to process structured data in hadoop
+  --> It recides on top of hadoop to summerize big data, andmakes quering and analysing easy
+  --> Initially hive was developed by facebook, later the apache software foundation took it up and developed it further as an open source under the name apache hive
+
+Features of Hive
+  --> It stores schema in a database and processed data into HDFS
+  --> It is designed for online analytical processing
+  --> It provides SQL type language for querying called hiveQl or HQL [High Query Language]
+  --> It is familiar, fast, scalable and extensable
+
+# Hive Architecture & Installation
+  --> Hive is a high level language used to run queries on data stored in hadoop
+  --> Hive is a dataware house infrastructure tool to process structured data in a hadoop
+  Hive Architecture
+    --> In hive architecture we have different components or units
+   1. User interface
+     --> Hive is a dataware house infrastructure software that can create interaction between user and hdfs
+     --> The user interface that hive supports are hive webUI, hive command line and Hive HD insight [Provides several cluster types, which are tuned for specific work loads]
+   2. Meta store
+     --> Hive chooses respective database servers to store the schema or meta data of tables, databases, columns in table, their datatypes and hdfs mapping
+  Hive Installation
+    --> Before hive installation we have to check whether the java and the hadoop also installed on our system or not
+   Step 1:- Download hive tar
+     Command:- wget     https://hive.apache.org/general/downloads/ or https://hive.com/download-hive/ 
+   Step 2:- Extract the tar file
+     Command:- tar-XZF apache_hive_2.1
+
+# Comparison of Hive and RDBMS [Traditional DBMS]
+  Hive
+   1. It is used to maintain dataware house
+   2. It uses HQL [Hive Query Language]
+   3. Hive is based on the notation of write ones read many times
+   4. Hive doesnot support OLTP [Online transaction processing] but it support OLAP [Online Analytical Processing]
+   5. Record level updates is not possible in hive
+   6. Hive data size is peta bytes
+   7. Distributed processing done via map/reduce
+   8. Normalized and denormalized both types of data is stored
+   9. Sharing method is used for partitionar 
+   10. It supports automation partition 
+   11. Table in hive are dense [large amount]
+   12. Hive enforces schema on read i.e., schema does not verify loading data
+   13. Hive is very easily scalable at low cost 
+   14. Hivr is shooted for static data analysis [non real time data] Ex:- Text file
+
+  RDBMS
+   1. It is used to maintain database
+   2. It uses SQL [Structured Query Language]
+   3. RDBMS is designed for read and write many times
+   4. RDBMS supports only OLTP
+   5. Record level updates, insertions, delete and transactions are possible
+   6. In RDBMS maximum data size is tera bytes
+   7. Distributed processing varies by vendor [company or person]
+   8. Normalized data is stored
+   9. No partitioned method is used
+   10. It doesnot support partition
+   11. Tables in RDBMS are sparse [small amount]
+   12. It enforces schema on write i.e,. schema verify loading data, else rejected
+   13. It is not scalable to low cost, been use it provides solution to the customer
+   14. RDBMS is best suited for dynamic data analysis [real time data] EX:- data from the sensors and web features
+
+# HQL
+  --> Hive aims to solve the problem by offeringf an SQL like interface called Hive QL on top of hadoop
+  --> Hive achieves this task by converting queries written in hiveQL into map reduce task that are then run across the hadoop cluster to fetch the desired result
+  --> The hiveQL is a query language for hive to process and analyse structured data in a meta store 
+  --> Hive supports SQL features like create, drop, select from where clauses, jointers and so on
+ Hive DDL commands
+   --> DDL statements are used to build and modify the tables and other objects
+   1. Create database statements
+

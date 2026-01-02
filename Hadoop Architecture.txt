@@ -1,0 +1,311 @@
+# The characteristics (or) features of Hadoop 
+Hadoop: It can handle large volumes of structured and unstructured  data more efficiently than the traditionall enterprise datawarehouse 
+  1. Open source
+    --> Hadoop is an open source project and it can be modified [code] according to the business requirements 
+  2. Distributed Processing 
+    --> A data is stored in a distributed manner in HDFS across the cluster and data is processed in parallel on a cluster of nodes 
+  3. Faster 
+    --> Hadoop is extremely good at high volume batch processing because of its ability to do parallel processing 
+  4. Fault Tolerance 
+    --> The data sent to one individual node and some data also replicates on other nodes in the same cluster
+    --> If the individal node failed to process the data the other nodes in the same cluster available to process the data  
+  5. Reliability
+    --> Due to data replication in the cluster data is reliable store on the cluster of machine even through machine failures
+    --> If the node failed to process the data the data will be stored reliable due to this characterstics of hadoop 
+  6. High Availability 
+    --> Data is highly available and accessable even through hardware failure due to multiple copies of data
+    --> If the machine or hardware crashes then data will be accessed from another path 
+  7. Scalability 
+    --> Hadoop is a highly scalable storage platform as it can store and distribute very large data sets across 100's of systems (or) servers that operate in parallel 
+  8. Flexibility 
+    --> Hadoop manages data whether structured (or) unstructured, encoded (or) formatted (or) any other type of data
+    --> Business can be hadoop to derive valuable business in sides from data source such as social media, E-mail conversations
+    --> Hadoop brings the value to the table where unstructured data can be useful in decision making process
+  9. Cost effective
+    --> Hadoop offers a cost effective storage solutions for business exploding datasets
+    --> Hadoop is not very expensive as it runs on a cluster of relatively in expensive hardware
+  10. Easy to use
+    --> No need of client to deal with distributed computing, the framework takes care of all the things
+    --> So hadoop is easy to use
+
+# Explain about Hadoop Architecture
+  --> Hadoop is a framework that allows you to store bigdata in a distributed environment
+  --> So that you can process it parallelly
+  --> Hadoop has a master slave architecture for data storage and distributed data processing using map reduce and HDFD methods 
+  1. name node
+    --> name node represents every files and directory which is used in the name space 
+  2. Data node
+    --> Data node helps you to manage the state of an HDFS nodes and allows you to interact with the blocks
+  3. Master node
+    --> The master node allows you to conduct parallel processing of data using hadoop map reduce
+  4. Map reduce 
+    --> Map reduce represents two seperates and distinct task hadoop programs perform map jon and reduce job
+    --> Map job takes data sets as input and process them to produce key value hairs
+    --> Reduce job takes the outputs of the map job that is the key value pairs and agreegates them to produce designed result 
+    --> The input and output of the map and reduce jobs are stored in HDFS
+  5. Slave node
+    --> The slave nodes are the additional machines in the hadoop cluster which allows you to store data, to conduct complex calculations
+    --> Moreover all the slave nodes comes with data nodes and task trackers 
+    --> This allows you to synchronize the process with name node and job trackers
+  6. Job trackers
+    --> Job trackers monitors the individual task trackers abd submits back the overall status of the job back to the client
+  7. Task trackers
+    --> Task trackers will be assigned mapper and reducer task to execute by job trackers
+
+# Hadoop Storage
+  --> In Hadoop HDFS is the primary storage unit
+  --> HDFS has a master slave architecture
+  --> In an HDFS cluster there is a single name node and a no.of data nodes
+  --> In this we discuss about name node and data nodes how it do in hadoop framework
+  1. name node in HDFS
+    --> The name node is the centre piece of an HDFS file system
+    --> name node manages the file system name space by strong information about the file system which contains the meta data above all the filesand directories 
+    --> In the file system mets data stoed about the file consist of file name, file path, number of blocks, block id, replication level
+    --> name node uses two files for storing this meta data information
+  2. FSimage
+    --> This file has the complete information about the file system meta data when the name node starts
+    --> All the operations after that are recorded in edit log
+  3. Edit log
+    --> All the files write operations done by client applications are first recorded in the edit log
+    --> name node in hadoop also keeps location of the data nodes that store the blocks for any given files in its memory
+    --> Client applications has to talk to name node to add/copy/move/delete a file
+    --> Since block information is also stored in the name node
+    --> So any client application that wishes to use a file has to get block report from name node
+    --> The name node returns list of data nodes where the data blocks are stored from the given file
+     
+  Datanodes in HDFS
+    --> Data blocks of the files are stored in a set of data nodes in hadoop cluster
+    --> Client application gets the list of datanodes where data blocks of a particular file are stored from name node
+    --> After that data nodes are responsible for serving read and write requests from the file system slient
+    --> The data node stored blocks, delete blocks and replicate those blocks upon instructions from the name node
+    --> Data nodes in a hadoop cluster periodically set a block report to the namenode
+    --> A block report contains a list of all blocks on a data node
+   Secondary name node
+     -->Secondary name node in hadoop is more of a helper to name node
+     --> It is not a backup name node server which can quickly takeovewr in case of name node failure
+     --> The process followed by secondary name node to periodically merge the FS image and the edit log files as followed
+     --> Secondary name node gets the latest FS image and edit log files from the primary name node
+     --> Secondary name node applies each transaction from edit log files to FS image to create a new merged FS image file
+     --> Merged FS image file is transfored back to the primary name node
+     --> The start of the checkpoints process on the secondary name node is controlled by 2 configurations perimeters which are to be configured in HDFS_Sign.XML
+
+# Hadoop Map Reduce
+  --> Hadoop map reduce is a programming paradigm at the heart of apache hadoop for providing scalability across 100's or 1000's of clusters on commidity hardware
+  --> The mapreduce model process large unstructured datasets with a distributed algorithm and a hadoop cluster
+ Map Reduce
+   --> The term map reduce represents to seperate and distinct task
+   --> Hadoop programs performs
+    1. Map job
+      --> Map job scales takes data sets as input and process them to produce key_value pairs
+    2. Reduce jobs
+      --> Reduce job takes the output of the map job that is the key value pairs and aggregates them to produce desired result
+      --> The input and output of the map and reduce jobs are stored in HDFS
+      EX:- The following word_count example explains map reduce method
+      --> First the input is split to distribute the work among all the map nodes as shown in the figure then each word is identified and mapped to the no one
+      --> Thus the pairs also called as tuples are created
+      --> In the first mapper node three words deer, bear and river are passed
+      --> Thus the olp of the node will be three key_pairs with three distinct keys and value set to one
+      --> The mapping process remains the same in all the nodes
+      --> These tuples are then passed to the reduce node
+      --> A partitionar comes into action which carries out shuffing so that the tuples with same key are sent to same node
+    3. Figure 
+      --> The over all map reduce word count process
+      --> The reducer node process all the tuples such that all the pairs with the same key are counted and the count is updated as the value of the specific key
+      --> In the above example there are one pairs with the key bear which are then reduced to single tuple with the value equal to the count
+      --> All the output tuples are then collected and written in the output file
+      --> Hadoop divides the job into task they are two types of tasks
+       1. Map task (splits & mapping)
+       2. Reducer task (shuffling & reducing)
+      --> The complete execution process(execution of map and reduce) is controlled by two types of entities called as 
+       1. Job trackers
+       2. Multiple task trackers
+      --> Job trackers acts like a master that is responsible for complete execution of submitted job
+      --> Multiple task trackers acts like slave, each of them performing the job
+      --> For every job submitted for execution in the system there is one job tracker that recides on name node and there are multiple task trackers which recide on data nodes 
+
+Job trackers and task trackers
+  --> Job trackers and task trackers are essential process involved in map reduce execution in hadoop version
+  --> Both process are now deprecated in hadoop version 2 and replaced by resource manager and node managers
+  Job trackers
+    -->Job trackers process runs on a seperate node and not usually on a data node
+    --> Job trackers is essential process for map reduce execution in hadoop version 2(MRV2)
+    --> Job trackers receives the requests for map reduce execution from the client
+    --> Job trackers talks to the name node to determine the location of the data
+    --> Job trackers monitors the individual task trackers and submits back the overall status of the job back to the client
+    --> When the job trackers is down, HDFS will still be functional but the map reduce execution cannot be started and the existing map reduce jobs will be stop
+  Task trackers
+    --> Task trackers runs on data node mostly on all data nodes
+    --> Task tracker is replaced by node manager in hadoop version 2
+    --> Mapper and reducers tasks are executed on data nodes administrated by task trackers
+    --> Task trackers will be assigned mapper and reducer tasks to execute ny job trackers
+    --> Task trackers will be in constant communication with the job tracker signaling the progress of the task in execution
+    --> When task tracker becomes unresponsible, then the job tracker will assign the task executed by the task tracker to another node
+
+# Hadoop Shell commands
+  To check the hadoop version (Version)
+    --> It determine which hadoop version you are using as well as check sums and dates 
+    Syntax:- Hadoop version 
+  
+  To start all process in hadoop (Start)
+    --> It is used to start all process in hadoop
+    Syntax:- $start_all.shape
+  
+  To check the running process in hadoop (JPS)
+    Synatax:- $JPS
+  
+  To stop all process in hadoop (Stop)
+    Synatx:- $stop.shape
+
+  List the content of a directorie (ls)
+    --> This command is used display the files and directions in hadoop
+    Synatx:- hadoop fs_ls
+  
+  Create a directory in HDFS at given path (inkdir)
+    --> This command is used to create directiories along the path
+    Synatx:- hadoop fs_mkdir <paths>
+  
+  To copy the local files into HDFS directory
+    Synatx:- $ mkdir input
+             $ cd    input
+             $ cd    f1.txt 
+  
+  Type some text and press Ctrl + d to exit 
+    Synatx:- $ cd f2.txt 
+  
+  Type some text and press Ctrl + d to exit 
+    Syntax:- $ hdfs dfs put/path/input/f1/newdata/file 1
+             $ hdfs dfs put/path/input/f2/newdata/file 2
+  
+  Upload a file in HDFS (put)
+    --> This command is used to copy single source or multiple source from local file system to the destination file system in HDFS
+    Syntax:- Hadoop fs-put <local src>  <dest>
+     EX:- hadoop fs_put local file 1/user/hadoop
+  
+  Get (download a file from HDFS)
+    --> This command is used to store or download data from HDFS to local file system
+    Synatx:- HDFS fs_get <local src>  <local dist> 
+     EX:- hadoop fs_get/user/hadoop/sampletext1.csv local file
+  
+  Cat 
+    --> This commanf is used to display the content of the HDFS file on your std output
+    Syntax:- HDFS fs_cat <path>
+     EX:- Hadoop fs_cat/user/hadoop/end.text
+  
+  RM (remove)  
+    --> This command is used to delete files from HDFS
+    Synatx:- HDFS fs_rm [-r] <directory_name> 
+     EX:- hadoop fs_rm/user/hadoop texts.txt 
+    --> If the directory has some elements we need to use "rm -r" option to recursively delete all internal elements
+  
+  MV 
+    --> This command is used to move files from source to destination in HDFS
+    Synatax:- hdfs fs_mv <hdfs_src>  <dest>
+     EX:- hdfs fs_mv/user/hadoop/text1.txt/user/hadoop/
+  
+  Count 
+    --> This command is used to count the no.of directories, files inside given directory
+    --> It also shows the file size of the directory
+    Synatx:- hdfs fs_count <path>
+  
+  Tail 
+    --> To display the few lines of a file in hdfs
+    Syntax:- hadoop fs_tail[-f]
+     EX:- hadoop fs_tail/user/hadoop/text1.txt 
+
+# HDFS read and write operations
+ Anatomy of file reading and write operations
+  Read operations in HDFS
+    --> To read a file from HDFS a client needs to interact with name node (master node), as name node is the center piece of hadoop cluster
+    --> Now name node checks from required previlizes, if the client has sufficient previliges then name node provides the address of the slave (data nodes) where a file is stored 
+    --> Now client will interact directly with the respective data nodes to read the data blocks
+    1. A client initiates read request by calling open() of file system object, it is an object of the type distributed file system
+    2. This object connects to name node using (RPC) [Remote procedure call] and gets meta data information such as the locations of the blocks of the file as these note that these address of 1st few blocks of a file
+    3. In response to this meta data request, address of the data nodes having a copy of that block is return back
+    4. Once address of data nodes are received an object of time type FS data input stream is returned to the client. FS data input stream contains DFs input stream which takes care of interactions with datanode and name node
+    --> In step 4 shown in the above diagram, a client which causes DFs input stream to establish a connection with the 1st data node (1st block of a file)
+    5. Data is read in the form of streams where in client in works Read() immediately. This process of Read() operation continuous it reaches to end of blocks
+    6. Once the end of a block is reached, DFS input stream closes the connection and moves onto locate the next data node for the next block
+    7. Once a client has done with the reading, it calls a Close()
+    --> To write a file in HDFS a client needs to interact with namenode now name noce provides the address of the data node on which client will start writing the data
+    --> Client directly writes data on the data nodes, now data node will create data write pipeline or data node pipeline
+    1. A client initiates write operations by calling create() of distributed file system object which creates a new file [Step no:1 in above figure]
+    2. Distributed file system object connects to the name node using RPC call and initiates new file creation. It is the responsibility of name node to verify that the file does not exist already and a client has correct permission to create a new file
+    3. If a file already exist or client does not have sufficient permission to create a new file then IO exception is thrown. Otherwise the operation success and a new record for the file is creatdd by the name node
+    4. Once a new record in name node is created, an object of type FS data output stream is return to the client. A client uses is to write data into the HDFS data write() is invoked FS
+    5. FS data output stream contains DFS output stream object which look after communication with data nodes and name nodes while the user continuous writing data. These packets are enqueueded into a queue which is called as Data queue
+    6. Data streamer which uses the data queue. Data streamer also asks name node for allocation of new blocks their by picking desilable data nodes
+    7. The data streamer flows packets into the first data node with the pipeline
+    8. Every data node in a pipeline stores packet received by it and forwards the same to the 2nd data node in a pipeline
+    9. Another queue i.e ack queue is maintained by DFS output stream to store packets which are waiting for acknowledgement from the data nodes
+    10. Once acknowledgement for a packet in the queue is received from all data nodes in the pipeline, in the pipeline, it is removed from the ACK queue. In the event of any datanode failure, packets from this queue are used to reinitiate the operation
+    11. After a client is done with the writing data, it calls a close() method to close, remaining data packets to the pipeline followed by waiting for acknowledgement
+    12. Once a final acknowledgement is received, name node is contacted to fell it that the file write operations is complete
+
+# Advantages of Hadoop cluster
+  --> The cluster helps in increasing the speed of the analysis process
+  --> Hadoop cluster is inexpensive
+  --> Hadoop cluster is scalability, it means hadoop offers scalable and flexible data storage
+  --> Here scalability means we can scale a hadoop cluster by adding new servers to the cluster if needed
+  --> Hadoop clusters deal with data from many sources and formats in a very quick, easy manner
+  --> It is possible to deploy hadoop using a single node installation, for evaluation purpose
+  SSH
+    -->Hadoop requires SSH[secure shell] access to manage its nodes
+    --> SSH utilizes standard public key cryptography to create pairs of is for user verification
+    --> One is public and the other one is private
+    --> Public key is stored locally and each node is clustered
+    --> Private key is sent by master node attempting to access of remote machine
+    --> With both pieces of information target machine can do login attempt 
+    1. Defining a common account
+      --> For hadoop the account should have same user name on all nodes for security purpose we recommended as a "user _levle account"
+    2. Verify SSH installation
+      --> First step is to check whether SSH is installed on our nodes and it can be done by using "which"
+      EX:- [hadoop _user@master] $which  SSH/user/bin/SSH
+      --> Before installation its important to understand nodes in which hadoop can run 
+      --> These are 3 models in which hadoop can be installed and runned
+     i. Standard alone mode:- In this mode there are no hadoop hemons that are running in background
+     ii. Pseudo Distributed mode:- This mode helps a multi server installation on single machine
+     iii. Fully distributed mode:- this mode involves code running on actual hadoop cluster. In this mode we will see actual power of hadoop 
+
+# Hadoop Administrating
+  --> In the hadoop world a systems administrate is called hadoop administrate
+  --> Hadoop admin roles and responsibilities includes setting up hadoop clusters
+  --> Other duties involves backup, recovery and maintanence
+  --> Hadoop administration requires good knowledge of hardware systems and excellent
+  --> Understanding of hadoop architecture, it is easy to get started with administration because linux system administraters are used to administrating all kinds of existing complex application
+  --> A hadoop admin do on day-to-day process as follows
+    *Installation & configuration
+    *Cluster maintanence
+    *Resource management
+    *Security management
+    *Trouble shooting
+    *Cluster monitoring
+    *Backup & recovery task
+  --> Alligning with the systems engineering team to purpose and deploy new hardware and software environments required for hadoop and to expand adjusting environments
+
+# Hadoop cluster setup, SSH and Hadoop configuration
+  --> A hadoop cluster is a collection of independent components connected through a dedicated network to work as a single centralised data processing resource
+  --> A hadoop cluster is just a computer cluster which we use for handling huge volume of data distributively
+  --> Hadoop cluster are also known as "shared nothing" systems because nothing is shared between the nodes in a hadoop cluster except for the network which connects them
+  --> Hadoop cluster have two types of machines such as master and slave where
+  Master:- HDFS name node, YARN resource manager
+  Slaves:- HDFS data nodes, YARN node managers
+  
+  Hadoop configuration
+    --> the core_site.XML, HDFS_site.XML, mappered_site.XML, master and slave are all available under "CONF" directory of hadoop installation directory
+   Core_site.XML
+     --> This file informs hadoop where name node runs in the cluster
+     --> It contains the configuration settings for hadoop core such as I/O settings that are common to HDFS and map reduce
+   HDFS_site.XML
+     --> This file conatins the configuration settings for HDFS demons that is the name node, the secondary name node and the data nodes
+     --> Here we can configur HDFS_site.XML to specify default block replication permission checking on HDFS
+     --> The actual no.of replications can also be specified when the file is created
+     --> The default is used if replication is not specify in create time
+   mappered_site.XML
+     --> The mapered_site.XML file conatins the configuration settings for map reduce demons that is the job tracker and the task trackers
+     <?XML version = "1.0"?>
+     <configuration>
+     <property>
+     <name> mapped.job trackers <iname>
+     <value. localhost:8021 <kvalue>
+     </prpperty>
+     </configuration>

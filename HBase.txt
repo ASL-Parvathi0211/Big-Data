@@ -1,0 +1,39 @@
+# HBase 
+  HBase is a column-oriented databse management system that runs on top of hadoop distributed file system (HDFS). It stores data in HDFS. It is no sql database or Non-relational database. HBase is used for fast read/write access to large amount of data. It stores large amount of data in the form of tables. In HBase table can have thousands of columns 
+
+# Features of HBase
+  1. Consistency
+     We can use this HBase feature for high-speed requirements bacuase if offers consistent reads and writes
+  2. Atomic Read and write 
+    During one read or write process, all other processes are prevented from performing any read or write operations this is what we call Atomic read and write. So, HBase offers atomic read and write, on a row level
+  3. Sharding
+    In order to reduce I/O time and overhead, HBase offers automatic and manual spitting of regions into smaller sub regions, as soon as it reaches a threshold size
+  4. High Availability
+    Moreover, it offers LAN and WAN which supports failover and recovery. Basically, there is a master server, at the core, which handles monitoring the region servers as well as all metadata for the cluster
+
+# Difference between RDBMS and HBase
+    RDBMS
+     1. It requires SQL [Structured Query Language]
+     2. It has a fixed schema
+     3. It is a row oriented data store
+     4. It is not scalable
+     5. It is static in nature
+     6. Slower retrieval of data
+     7. It follows the ACID (Atomicity, Consistency, Isolation and Durability property)
+     8. It can handle structured data
+     9. It cannot handle sparse data
+     10. It designed to store Normalized data 
+    
+    HBase
+     1. No SQL
+     2. No fixed schema
+     3. It is column oriented data store
+     4. It is scalable
+     5. Dynamic in nature 
+     6. Faster retieval of data
+     7. It follows CAP(Consistency, Availability, Partition-tolerance) theorem
+     8. It can handle structured, unstructured as well as semi-structured data
+     9. It can handle sparse data
+     10. It designed to store Denormalized Data
+
+ 
