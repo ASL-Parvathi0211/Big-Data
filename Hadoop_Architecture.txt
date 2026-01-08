@@ -1,0 +1,23 @@
+# Explain about Hadoop Architecture
+  --> Hadoop is a framework that allows you to store bigdata in a distributed environment
+  --> So that you can process it parallelly
+  --> Hadoop has a master slave architecture for data storage and distributed data processing using map reduce and HDFD methods 
+  1. name node
+    --> name node represents every files and directory which is used in the name space 
+  2. Data node
+    --> Data node helps you to manage the state of an HDFS nodes and allows you to interact with the blocks
+  3. Master node
+    --> The master node allows you to conduct parallel processing of data using hadoop map reduce
+  4. Map reduce 
+    --> Map reduce represents two seperates and distinct task hadoop programs perform map jon and reduce job
+    --> Map job takes data sets as input and process them to produce key value hairs
+    --> Reduce job takes the outputs of the map job that is the key value pairs and agreegates them to produce designed result 
+    --> The input and output of the map and reduce jobs are stored in HDFS
+  5. Slave node
+    --> The slave nodes are the additional machines in the hadoop cluster which allows you to store data, to conduct complex calculations
+    --> Moreover all the slave nodes comes with data nodes and task trackers 
+    --> This allows you to synchronize the process with name node and job trackers
+  6. Job trackers
+    --> Job trackers monitors the individual task trackers abd submits back the overall status of the job back to the client
+  7. Task trackers
+    --> Task trackers will be assigned mapper and reducer task to execute by job trackers
