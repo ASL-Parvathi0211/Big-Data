@@ -26,39 +26,6 @@ Features of Hive
    Step 2:- Extract the tar file
      Command:- tar-XZF apache_hive_2.1
 
-# Comparison of Hive and RDBMS [Traditional DBMS]
-  Hive
-   1. It is used to maintain dataware house
-   2. It uses HQL [Hive Query Language]
-   3. Hive is based on the notation of write ones read many times
-   4. Hive doesnot support OLTP [Online transaction processing] but it support OLAP [Online Analytical Processing]
-   5. Record level updates is not possible in hive
-   6. Hive data size is peta bytes
-   7. Distributed processing done via map/reduce
-   8. Normalized and denormalized both types of data is stored
-   9. Sharing method is used for partitionar 
-   10. It supports automation partition 
-   11. Table in hive are dense [large amount]
-   12. Hive enforces schema on read i.e., schema does not verify loading data
-   13. Hive is very easily scalable at low cost 
-   14. Hivr is shooted for static data analysis [non real time data] Ex:- Text file
-
-  RDBMS
-   1. It is used to maintain database
-   2. It uses SQL [Structured Query Language]
-   3. RDBMS is designed for read and write many times
-   4. RDBMS supports only OLTP
-   5. Record level updates, insertions, delete and transactions are possible
-   6. In RDBMS maximum data size is tera bytes
-   7. Distributed processing varies by vendor [company or person]
-   8. Normalized data is stored
-   9. No partitioned method is used
-   10. It doesnot support partition
-   11. Tables in RDBMS are sparse [small amount]
-   12. It enforces schema on write i.e,. schema verify loading data, else rejected
-   13. It is not scalable to low cost, been use it provides solution to the customer
-   14. RDBMS is best suited for dynamic data analysis [real time data] EX:- data from the sensors and web features
-
 # HQL
   --> Hive aims to solve the problem by offeringf an SQL like interface called Hive QL on top of hadoop
   --> Hive achieves this task by converting queries written in hiveQL into map reduce task that are then run across the hadoop cluster to fetch the desired result
