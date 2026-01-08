@@ -1,0 +1,19 @@
+# Big Data
+    In digital world, wheree data is increasing rapidly because the increasing of using the internet, sensors and very high machines at very high rate by sharing the volume, variety, velocity of such data is signified by Big Data.
+    For Example, Web log data, hospitality data, cc cameras data is considered as Big data.
+    It is depending upon the capabilities of the organisation and managing the processing data is Big Data
+
+# Evaluation of Big Data
+There are some major mile stones to evaluating the big Data.
+    In 1940's the information is limited storage
+    In 1960's automatic data compression was published it explores information in hte past few years makes it necessary to storing the information to be minimised
+    In 1970's the information flow is ordered to track the volume of information to calculating the country
+    In 1980's research projects was started to measuring a volume of information in bits
+    In 1990's digital storage systems become more economical than paper storage
+    In 2000's onwards various method was intoduced some information technique where contolling the storage volume, velocity and variety of data in merge
+
+Module 1: DFS
+Module 2: Hadoop
+Module 3: Hadoop Architecture 
+Module 4: HIVE, HIVEQL and HBase
+Module 5: HBase
