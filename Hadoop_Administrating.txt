@@ -1,0 +1,15 @@
+# Hadoop Administrating
+  --> In the hadoop world a systems administrate is called hadoop administrate
+  --> Hadoop admin roles and responsibilities includes setting up hadoop clusters
+  --> Other duties involves backup, recovery and maintanence
+  --> Hadoop administration requires good knowledge of hardware systems and excellent
+  --> Understanding of hadoop architecture, it is easy to get started with administration because linux system administraters are used to administrating all kinds of existing complex application
+  --> A hadoop admin do on day-to-day process as follows
+    *Installation & configuration
+    *Cluster maintanence
+    *Resource management
+    *Security management
+    *Trouble shooting
+    *Cluster monitoring
+    *Backup & recovery task
+  --> Alligning with the systems engineering team to purpose and deploy new hardware and software environments required for hadoop and to expand adjusting environments

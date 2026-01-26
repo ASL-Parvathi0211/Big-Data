@@ -1,0 +1,27 @@
+# Hadoop cluster setup, SSH and Hadoop configuration
+  --> A hadoop cluster is a collection of independent components connected through a dedicated network to work as a single centralised data processing resource
+  --> A hadoop cluster is just a computer cluster which we use for handling huge volume of data distributively
+  --> Hadoop cluster are also known as "shared nothing" systems because nothing is shared between the nodes in a hadoop cluster except for the network which connects them
+  --> Hadoop cluster have two types of machines such as master and slave where
+  Master:- HDFS name node, YARN resource manager
+  Slaves:- HDFS data nodes, YARN node managers
+  
+  Hadoop configuration
+    --> the core_site.XML, HDFS_site.XML, mappered_site.XML, master and slave are all available under "CONF" directory of hadoop installation directory
+   Core_site.XML
+     --> This file informs hadoop where name node runs in the cluster
+     --> It contains the configuration settings for hadoop core such as I/O settings that are common to HDFS and map reduce
+   HDFS_site.XML
+     --> This file conatins the configuration settings for HDFS demons that is the name node, the secondary name node and the data nodes
+     --> Here we can configur HDFS_site.XML to specify default block replication permission checking on HDFS
+     --> The actual no.of replications can also be specified when the file is created
+     --> The default is used if replication is not specify in create time
+   mappered_site.XML
+     --> The mapered_site.XML file conatins the configuration settings for map reduce demons that is the job tracker and the task trackers
+     <?XML version = "1.0"?>
+     <configuration>
+     <property>
+     <name> mapped.job trackers <iname>
+     <value. localhost:8021 <kvalue>
+     </prpperty>
+     </configuration>

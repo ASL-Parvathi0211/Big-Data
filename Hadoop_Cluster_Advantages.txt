@@ -1,0 +1,24 @@
+# Advantages of Hadoop cluster
+  --> The cluster helps in increasing the speed of the analysis process
+  --> Hadoop cluster is inexpensive
+  --> Hadoop cluster is scalability, it means hadoop offers scalable and flexible data storage
+  --> Here scalability means we can scale a hadoop cluster by adding new servers to the cluster if needed
+  --> Hadoop clusters deal with data from many sources and formats in a very quick, easy manner
+  --> It is possible to deploy hadoop using a single node installation, for evaluation purpose
+  SSH
+    -->Hadoop requires SSH[secure shell] access to manage its nodes
+    --> SSH utilizes standard public key cryptography to create pairs of is for user verification
+    --> One is public and the other one is private
+    --> Public key is stored locally and each node is clustered
+    --> Private key is sent by master node attempting to access of remote machine
+    --> With both pieces of information target machine can do login attempt 
+    1. Defining a common account
+      --> For hadoop the account should have same user name on all nodes for security purpose we recommended as a "user _levle account"
+    2. Verify SSH installation
+      --> First step is to check whether SSH is installed on our nodes and it can be done by using "which"
+      EX:- [hadoop _user@master] $which  SSH/user/bin/SSH
+      --> Before installation its important to understand nodes in which hadoop can run 
+      --> These are 3 models in which hadoop can be installed and runned
+     i. Standard alone mode:- In this mode there are no hadoop hemons that are running in background
+     ii. Pseudo Distributed mode:- This mode helps a multi server installation on single machine
+     iii. Fully distributed mode:- this mode involves code running on actual hadoop cluster. In this mode we will see actual power of hadoop 

@@ -1,0 +1,20 @@
+# Hadoop Storage
+  --> In Hadoop HDFS is the primary storage unit
+  --> HDFS has a master slave architecture
+  --> In an HDFS cluster there is a single name node and a no.of data nodes
+  --> In this we discuss about name node and data nodes how it do in hadoop framework
+  1. name node in HDFS
+    --> The name node is the centre piece of an HDFS file system
+    --> name node manages the file system name space by strong information about the file system which contains the meta data above all the filesand directories 
+    --> In the file system mets data stoed about the file consist of file name, file path, number of blocks, block id, replication level
+    --> name node uses two files for storing this meta data information
+  2. FSimage
+    --> This file has the complete information about the file system meta data when the name node starts
+    --> All the operations after that are recorded in edit log
+  3. Edit log
+    --> All the files write operations done by client applications are first recorded in the edit log
+    --> name node in hadoop also keeps location of the data nodes that store the blocks for any given files in its memory
+    --> Client applications has to talk to name node to add/copy/move/delete a file
+    --> Since block information is also stored in the name node
+    --> So any client application that wishes to use a file has to get block report from name node
+    --> The name node returns list of data nodes where the data blocks are stored from the given file

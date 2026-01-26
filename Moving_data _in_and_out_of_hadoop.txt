@@ -1,0 +1,36 @@
+# Moving data in and out of hadoop
+  --> Moving large quantities of data in and out of hadoop offers many challenges
+  --> THe key elements that are to be considered when working with data moments are
+    1. Idempotence 
+      --> An idempotent operation produce the same result no matter how many times its executed
+      --> In a relational database the inserts are not idempotent
+      --> Because executing them multiple times does not produce the same result in database started
+      --> Alternatively updates often are idempotent because they will produce the same end result 
+      --> Any time data is being written idempotency should be a consideration in hadoop
+    2. Aggregation 
+      --> The data aggregation process combines multiple data elements
+      --> In the context of data ingrease, these can be useful because moving large quantities of small files into HDFS potentially translates into name node memory as well as slow map reduce reduce execution times 
+    3. Data Format Transformation 
+      --> The data transformation process converts one data format into another
+      --> The source data is not in a format i.e., ideal for processing in tools such as map reduce
+      --> IF the source data is in multi-line XML form and want to apply a pre-processing step
+      --> This would converts the data into a form that can be split such as XML element per line or converts it into a format such as "AVRO"
+    4. compression
+      --> Compression not only helps by reducing the foot print of data at rest, but also has IO advantages when reading and writing data
+    5. Availability and Recoverability
+      --> Recoverability allows an ingrease or Egress tool to retry in the event of a failed operation
+      --> Because its unlikely that any data source or hadoop itself can be 100% available, its important that an ingress or agress action be retreived retried in the event of failure 
+    6. Reliable data transfer & Data Validation
+      --> In the context of data transformation checking for correctness is how you verify that no data corruption occured as the data was in transit 
+      --> A common method for checking for checking the correctness of raw data such as storage devices is cyclic reduntancy check [ CRC ] which are what HDFS uses internally too maintain block level integrity 
+    7. Resource Consumption & Performance
+      --> Resource consumption and performance are measures of system resource utilization and system efficiency
+      --> For performance whether the tool performs ingress or agress activities in parallel and if so what mechanism it provides to tune the amount of parallalism
+    8. Monitoring 
+      --> Monitoring ensures that functions are performing as expected in automated systems
+      --> Monitoring should also includes verifying that the data volumes being moved are at expected level
+    9. Spectiative Execution 
+      --> Map reduce has a feature called spectilative execution that launches duplicates tasks near the end of the job for tasks that are stiff executing
+      --> This helps prevent slow hardware from impacting job execution time
+      --> But if a map task is used to perform inserts into a relational database there can be parallel processes inserting the same data 
+

@@ -1,0 +1,19 @@
+# Understanding inputs and outputs of map reduce
+    a.Understanding inputs of map reduce
+      --> The two classes but that support data input in map reduce are input format and record recorder
+        1. Input Format
+          --> The input format class is used to determine how the input data should be partitioned for the map task
+          --> Every job in map reduce must definr its inputs according to the input-format abstract class
+          --> Input format describe type information for map input keys and values, they specify how the input data should be partitioned and they indicate the record reader instance that should read the data from source 
+        2. Record Reader
+          --> Record reader performs the reading of data from the inputs
+          --> Record reader calss in the map task is used to read data from an input
+          --> A task is commonly created for each input split and each task has a single record reader thats responsible for reading the data for that input split
+    b. Understanding outputs of map reduce
+      --> The two classes that support data output in map reduce are output format and a record writter
+        1. Output Format
+          --> The output foramt performs some basic validation of the data sink properties 
+          --> The output format class should check the information related to the job output, providing a record writter, and specyfing and output commiter which allows to be staged and then made perminent upon tasks or job success
+        2. Record writter
+          --> The record writter class is used to write the reducer outputs to the determined data link
+

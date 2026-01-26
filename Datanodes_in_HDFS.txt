@@ -1,0 +1,16 @@
+Datanodes in HDFS
+    --> Data blocks of the files are stored in a set of data nodes in hadoop cluster
+    --> Client application gets the list of datanodes where data blocks of a particular file are stored from name node
+    --> After that data nodes are responsible for serving read and write requests from the file system slient
+    --> The data node stored blocks, delete blocks and replicate those blocks upon instructions from the name node
+    --> Data nodes in a hadoop cluster periodically set a block report to the namenode
+    --> A block report contains a list of all blocks on a data node
+   
+   Secondary name node
+     -->Secondary name node in hadoop is more of a helper to name node
+     --> It is not a backup name node server which can quickly takeovewr in case of name node failure
+     --> The process followed by secondary name node to periodically merge the FS image and the edit log files as followed
+     --> Secondary name node gets the latest FS image and edit log files from the primary name node
+     --> Secondary name node applies each transaction from edit log files to FS image to create a new merged FS image file
+     --> Merged FS image file is transfored back to the primary name node
+     --> The start of the checkpoints process on the secondary name node is controlled by 2 configurations perimeters which are to be configured in HDFS_Sign.XML

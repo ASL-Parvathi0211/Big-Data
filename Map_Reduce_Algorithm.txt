@@ -1,0 +1,44 @@
+# Explain about map reduce algorithm
+  --> Map reduce is a high level progemming model for processing large data sets in parallel 
+  --> It was originally developed by google. adopted from functional programming
+  --> The model is suitable for a rnage of problems such as matrix operations, statistical frequency counting etc,.
+  --> The model mapreduce algorithm contains two important tasks namely map, reduce
+  *The map task takes a set of data and converts it into another set of data, where individual elements are broken down into tuples
+  *The reduce task takes the output from the map as an input and combines those data tuples into a smaller set of tuples
+
+  -->The map task is done by means of mapper class
+  --> the reduce task is done by means of reduce class
+  --> Map reduce implements various mathematical algorithms to devide a task into small parts and assign them to multiple systems
+  --> these mathematical algorithms may include the following
+  1. Sorting
+    --> Sorting is one of hte basic map reduce algorithm to process and analyse data
+    --> Map reduce implements sorting algotithm. It automitally sorts the data
+    --> Sorting method are implemented in the mapper class itself
+    --> In the shuffle and sort phase after tokanising the values in hte mapper class by user defined class collects the matching valued is as a collection
+    --> To collect similar key value pairs [intermediate keys] the mapper class takes the help of row comparater class to sort the key value pairs
+    --> The set of intermediate key value phase for a given reducer is automatically sorted to form key values before they are presented to the reducer
+  2. Searching
+    --> searching plays an important role in map reduce algorithm
+    --> It helps in the combiner phase and in the reducer phase
+    --> Let us try to understand how searching bugs with the help of an example
+    --> The following example shows how map reduce employees searching algorithm to find out the details of the employee to draws the heighest salary in a given employee data set
+    1. Let us assume we have employee data in four different files a, b, c, d 
+    2. Let us also assume there are duplicate employee records in all four files because of importing of employee data from all database tables repeatedly
+    --> The "map phase" process each input file and provides the employee data in key_value pairs (<k,v>:<employee name, salary>) 
+    --> The combiner phase(searching technique) will accept the input from the map phase as a key_value pairs with emp name and salary
+    --> Using searching technique the combinor will check all the employee salary to find the highest salaried employee in each file 
+      <k:employee name, v:salary>
+      max = The salary of an first employee treated as max salary 
+      if (v(second employee)salary>max)
+      {
+        max = v(salary);
+      }
+      else 
+      {
+      continue checking
+      }
+    --> The expected result is as follows
+    <Varsha, 30000> <Surya, 40000> <Naga, 22000> <ANIL, 25000> 
+
+
+      

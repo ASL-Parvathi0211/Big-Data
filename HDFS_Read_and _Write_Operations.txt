@@ -1,0 +1,29 @@
+# HDFS read and write operations
+ Anatomy of file reading and write operations
+  Read operations in HDFS
+    --> To read a file from HDFS a client needs to interact with name node (master node), as name node is the center piece of hadoop cluster
+    --> Now name node checks from required previlizes, if the client has sufficient previliges then name node provides the address of the slave (data nodes) where a file is stored 
+    --> Now client will interact directly with the respective data nodes to read the data blocks
+    1. A client initiates read request by calling open() of file system object, it is an object of the type distributed file system
+    2. This object connects to name node using (RPC) [Remote procedure call] and gets meta data information such as the locations of the blocks of the file as these note that these address of 1st few blocks of a file
+    3. In response to this meta data request, address of the data nodes having a copy of that block is return back
+    4. Once address of data nodes are received an object of time type FS data input stream is returned to the client. FS data input stream contains DFs input stream which takes care of interactions with datanode and name node
+    --> In step 4 shown in the above diagram, a client which causes DFs input stream to establish a connection with the 1st data node (1st block of a file)
+    5. Data is read in the form of streams where in client in works Read() immediately. This process of Read() operation continuous it reaches to end of blocks
+    6. Once the end of a block is reached, DFS input stream closes the connection and moves onto locate the next data node for the next block
+    7. Once a client has done with the reading, it calls a Close()
+    --> To write a file in HDFS a client needs to interact with namenode now name noce provides the address of the data node on which client will start writing the data
+    --> Client directly writes data on the data nodes, now data node will create data write pipeline or data node pipeline
+    1. A client initiates write operations by calling create() of distributed file system object which creates a new file [Step no:1 in above figure]
+    2. Distributed file system object connects to the name node using RPC call and initiates new file creation. It is the responsibility of name node to verify that the file does not exist already and a client has correct permission to create a new file
+    3. If a file already exist or client does not have sufficient permission to create a new file then IO exception is thrown. Otherwise the operation success and a new record for the file is creatdd by the name node
+    4. Once a new record in name node is created, an object of type FS data output stream is return to the client. A client uses is to write data into the HDFS data write() is invoked FS
+    5. FS data output stream contains DFS output stream object which look after communication with data nodes and name nodes while the user continuous writing data. These packets are enqueueded into a queue which is called as Data queue
+    6. Data streamer which uses the data queue. Data streamer also asks name node for allocation of new blocks their by picking desilable data nodes
+    7. The data streamer flows packets into the first data node with the pipeline
+    8. Every data node in a pipeline stores packet received by it and forwards the same to the 2nd data node in a pipeline
+    9. Another queue i.e ack queue is maintained by DFS output stream to store packets which are waiting for acknowledgement from the data nodes
+    10. Once acknowledgement for a packet in the queue is received from all data nodes in the pipeline, in the pipeline, it is removed from the ACK queue. In the event of any datanode failure, packets from this queue are used to reinitiate the operation
+    11. After a client is done with the writing data, it calls a close() method to close, remaining data packets to the pipeline followed by waiting for acknowledgement
+    12. Once a final acknowledgement is received, name node is contacted to fell it that the file write operations is complete
+

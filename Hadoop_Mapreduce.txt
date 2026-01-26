@@ -1,0 +1,33 @@
+# Hadoop Map Reduce
+  --> Hadoop map reduce is a programming paradigm at the heart of apache hadoop for providing scalability across 100's or 1000's of clusters on commidity hardware
+  --> The mapreduce model process large unstructured datasets with a distributed algorithm and a hadoop cluster
+ Map Reduce
+   --> The term map reduce represents to seperate and distinct task
+   --> Hadoop programs performs
+    1. Map job
+      --> Map job scales takes data sets as input and process them to produce key_value pairs
+    2. Reduce jobs
+      --> Reduce job takes the output of the map job that is the key value pairs and aggregates them to produce desired result
+      --> The input and output of the map and reduce jobs are stored in HDFS
+      EX:- The following word_count example explains map reduce method
+      --> First the input is split to distribute the work among all the map nodes as shown in the figure then each word is identified and mapped to the no one
+      --> Thus the pairs also called as tuples are created
+      --> In the first mapper node three words deer, bear and river are passed
+      --> Thus the olp of the node will be three key_pairs with three distinct keys and value set to one
+      --> The mapping process remains the same in all the nodes
+      --> These tuples are then passed to the reduce node
+      --> A partitionar comes into action which carries out shuffing so that the tuples with same key are sent to same node
+    3. Figure 
+      --> The over all map reduce word count process
+      --> The reducer node process all the tuples such that all the pairs with the same key are counted and the count is updated as the value of the specific key
+      --> In the above example there are one pairs with the key bear which are then reduced to single tuple with the value equal to the count
+      --> All the output tuples are then collected and written in the output file
+      --> Hadoop divides the job into task they are two types of tasks
+       1. Map task (splits & mapping)
+       2. Reducer task (shuffling & reducing)
+      --> The complete execution process(execution of map and reduce) is controlled by two types of entities called as 
+       1. Job trackers
+       2. Multiple task trackers
+      --> Job trackers acts like a master that is responsible for complete execution of submitted job
+      --> Multiple task trackers acts like slave, each of them performing the job
+      --> For every job submitted for execution in the system there is one job tracker that recides on name node and there are multiple task trackers which recide on data nodes 

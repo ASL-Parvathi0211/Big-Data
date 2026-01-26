@@ -1,0 +1,37 @@
+# Data Serialization
+  -->Serialization is the process of converting structured object, data into a byte stream
+  --> It is done basically for two purpose
+  --> One for transmission over a network [ inter process communication ] and the second one for writing to persistent storage
+  --> In hadoop the inter process communication between nodes in the system is done by using remote procedure call [RPC]
+  --> The RPC protocal users sertalization to make the message into a binary stream to be sent to the remote node 
+  --> The remote node receives and deserializers the binary stream into the original message
+  --> The RPC serialization format is required to be as follows:
+    1. Compact
+      --> To make the best use of network band with, which is the most resource in a data Centralized
+    2. fast
+      --> Since is the communication between the nodes is srucial in distributed systems the serialization and deserialization process should be quick, producing less over happened
+  
+    Extensible
+      --> To adopt to new changes and requirements
+    Interoperable
+      --> The message format should support the nodes that are written it in different languages 
+      --> Hadoop uses its own serialization format i.e, writables
+      --> Writable is compact and fast but not extensable or Interoperable
+    Persistent Storage 
+      --> Persistent storage is a digital storage facility that does not lose its data with the loss of power supply. For example, Mangnetic disks and Hard disk Drivers 
+
+    # Serializing the Data in Hadoop
+      --> The process to serialize the integer type of data in discussed below
+      *Instantiate IntWritable class by wrapping an integer value in it
+      *Instantiate ByteArray Output Stream class
+      *Instantiate DataOutputStream class and pass the object of ByteArrayOutputStream class to it
+      *Serialize the integer value in IntWritable object using write() method. This method needs an object of DataOutputStream class 
+      *The serialized data will be stored in the byte array object which is passed as parameter to the DataOutputStream class at the time of installation. Convert the data in the object to byte array 
+        Writable Interface
+          This is the interface in hadoop which provides methods for serialization and deserialization. The following table describes the methods
+          *Void read fields (Data Input in): This method is used to deserialize the fields of the given object
+          *void write (DataOutput out): This method is used to serialize the fields of the given object 
+        InWritable class
+          This class implements Writable, Comparable and Writable Comparable interfaces. This class provides method used to serialize and deserialize integer type of data
+          *Int Writable(), Int Writable(int value)(Classes): int get   using this method you can get the integer value present in the current object
+          *Vod Set(int value): This method is used to set the value of the current Intwritable object

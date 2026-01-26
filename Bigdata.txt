@@ -1,0 +1,113 @@
+# BigData and its Importance
+  Data is a group of characters or symbols on which operations are performed by a computer
+  In stores and transmitted in the form of electrical signals and recorded on magnetic tape optical or mechanical recording media
+  BigData is a term used to describe collection of data that is huge in size and is growing exponentially within short period of transmitted
+  # Common examples of BigDaa are as follows
+    1. The NewYork stock exchange which generates above one tera byte of new trade data per day
+    2. Social media site facebook adds 500+ tera bytes of new data everyday in terms of photo and video uploads, message exchanges, putting comments etc,.
+    3. Amazon hadles 15 million customer click stream user data per day for recommended products
+    4. youtube users upload 48 hours of new videos every minute of the day
+
+# Catogeries of BigData
+  BigData could be found in three forms. they are
+  1. Structured
+  --> Any data that can be stored, accessed, processed in the fixed format is termed s the structured data
+  --> An employee table in a database is an example of structured data 
+  2. Unstructured Data
+  --> Any data with unknown form or structure is termed as a unstructured data
+  --> An output result of google search is an example of unstructured data
+  3. Semi Structured
+  --> Semi structured data can contain both the forms of data
+  --> Semi structured data is structured in form but it is actually not defined as a table definition in relational DBMS
+  --> Example of semi structured data is a personal data of an employee stored in XML files
+
+# Drivers of BigData
+  While most definitions of BigData focus on the new forms of unstructured data flowing through business with new levels of volume, velocity, variety and variability thus BigData cn be represented as a simple equation.
+  # key drivers behind the BigData
+   --> Opportunity to enable improves new business models
+   --> Potentially for new technologies to drive competatively
+   --> Data collected and stored continuously to improve the data
+   --> Data is increased everywhere in many formats
+   --> Traditional solutions are failed in new requirements
+   --> Cost of the data systems as a percentage of IT spend the money continuously increasing
+   --> Cost advantage of hardware & software is conviniently
+
+# BigData Analytics
+  --> The volume of the data that one has to deal has exploted to unimaginale level in the past code and at the same time the price of the data storage has systematically reduced
+  --> private companies and research institutions capture Tera Bytes of data about their usersinteractions, business, socail media and also sensors from devices such as mobile phones and automobiles
+  --> BigData analytics largely involves collecting data from different sources and it is a way that it becomes available to be consumed by analyst and finally delivered data products useful to the organisation business
+  --> BigData analytics in different domines:
+
+  --> The Process of converting large amount of unstructured raw data, reduced from different sources to a data products usefuk for organisation forms the core of BigData analytics
+
+  1. Business Understanding
+    --> This is intial phase focuses on understanding the project objectives and requirements from a business perspective, and then converting this knowledge into a data mining problem definition
+    --> A primary plan is designed to achieve the objectives
+  2. Data Understanding
+    --> the data understanding phase starts with an initial dat collection and proceeds with activities in order to get familiar with the data, to identify data quality problems, to discover first insides into the data
+  3. Data Preperation
+    --> The data preperation phase covers or activities to construct the final data set from the inital raw data
+    --> Data preperation tasks are likely to be performed multiple times and not in any described order
+    --> Tasks include table, record and attribute selection as well as transformation and cleaning of data for modelling tasks
+  4. Modelling 
+    --> In these phase various modeling techniques are selected and applied to their parameters are calibrated [core related with those of standards] to optimal values
+    --> There are several techniques for the same data mining problem type
+    --> Some techniques have specific requirements on hte form of data
+    --> Therefore, it is often required to step back to the Data preperation phase
+  5. Evaluation
+    --> At this stage in the project you have built a model that apperrs to have high quality from a data analysis perspective
+    --> Before proceeding to final deployment of the model it is important to evaluate the model throughly and review the steps executed to construct the model to be certain it properly achieves the business objectives
+    --> At the end of this phase a decision on the use of the data mining reults should be reached
+  6. Deployment
+    --> Creation of the model is generally not the end of the project even if the purpose of the model is to increase knowledge of the data, the knowledge gained will need to be organised and presented in a way thati s useful to the customer
+    --> Depending upon the requirements the deployment phase can be as simple as generating a report or as complex as implementing a repeatable data scoring or data mining process
+
+# Types of analysis or analytics
+There are 4 types of analytics
+  1. Diagnostic analysis
+    --> It determines what has happened in the past and why it can be used to access the no.of posts, likes and reviews in a social media marketing company
+  2. Predective analysis
+    --> An analysis of data than can be used to predect what situation or no.of situations may result
+  3. Prescriptive analysis
+    --> It does not only say what is going on, but also what might happened and most importantly what to do about
+  4. Descriptive analysis
+    --> It uses adjusting information from the past to underastand decision in present and helps decide on effective source of action in future
+
+# categories
+  --> When 
+  1. Basic Analytics
+    --> It involves visualisation of simple statics
+    --> This type of analytics is used especially when a lot of disperate data needs to be analysed
+    --> the process of basic analytics includes investigating what happened, when it happened and its impact
+  2. Advanced analytics
+    --> It performs complex analysis of both structure and unstructured data by using algorithms
+    --> It also used data mining techniques, machine learning, test analysis
+  3. Operational analytics
+    --> It means making analytics an impotant part of business process for instance, an insurance can use this model to predict the probability of client been faraudulent
+  4. Monetized analytics
+    --> It helps business to take important and better decision and earn revenues
+    --> Credit providers it can use this data to offer value added production and technical communication company
+
+# Applications of BigData
+  --> BigData has found many application in various fields today
+  --> The major fields where bigdata is being used as follows
+  1. Smarter Healthcare
+    --> Making use of the peta-bytes of patients data the organisation can extract measuring full information and tehn build applications that can predict the patients condition in advance
+  2. Telecom
+    --> Telecom sector collects infroamtion, analysis it and provides solutions to different problems
+    --> By using bigdata applications telecom companies have been able to significantly reduce data packet loss, which networks are over loadded  and this providing a seemless connection to thier customers
+  3. Retail 
+    --> Retail is one of the greatest benefits of bigdata 
+    --> The using of bigdata in retail is to understand consumer behaviour 
+    --> Amazon recommondation engine provides suggestion based on the browsing history of the customers
+  4. Traffic control 
+    --> Traffic control is a major change for many cities 
+    --> globally effective use of data and concesors will be kwy to managing
+    --> Traffic better as cities become increasingly densly populated
+  5. Manufacturing
+    --> Analysing data in the manufacturing industry product quality, increase efficiency and save time and money
+  6. Search quality
+    --> Everytime we are extracting information from google 
+    --> We are simultaneously generating data for it 
+    --> Google stores this data and uses it to improve its search quality
+

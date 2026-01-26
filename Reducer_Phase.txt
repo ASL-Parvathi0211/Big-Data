@@ -1,0 +1,27 @@
+# Reducer phase
+  --> It from each file you will find the highest salaried employee
+  --> To avoid redundency check all the <k,v> and eliminate duplicate entries if any
+  --> The same algorithm is used in between the four <k,v> which are coming from four input files
+  --> The final output should be as follows: <surya, 4000>
+
+Matrix_Vector multiplication by map reduce
+  --> Map reduce is a high level programming model for processing large data sets in parallel
+  --> It was originally developed by google, adopted from functional programming
+  --> The model is suitable for a range of problems such as matrix operations, statistical frequency counting etc,. 
+  Matrix Vector Application 
+    --> There are different implementations of matrix vector multiplication depending on the vector fits into the main memory or not 
+    --> This example demonistrates a basic version of matrix vector multiplication in which the vector fits into the main memory
+
+    --> We store the spare matrix as a triple with explicet co-ordinate (i, j, aij)
+    --> the value of the first entry of hte matrix [0,0] is 3
+    --> Similarly the value of the second entry in (1,0) is 2
+    --> We donot store the zero entries of hte matrix
+    --> This is the spare matrix representation of hte matrix of the matrix from the figure above
+
+    --> We store the vector in a dense format without explicit co-ordinate
+    --> One of the map function takes the first element of the matrix(0,0,3) be multiplies it with the first element of hte vector '4'and produce an intermediate key_value pairs(0, 12)
+    --> The key '0' that is the row position of hte element in the spare matrix, associates the value(12) with its position in the matrix vector product 
+    --> Another map function takes the second element (1, 0, 2) multiplies it with the second row of the vector '3' producing an intermediate key value pair (0, 6) etc,.
+    --> Reduce function performs a summary operation on the intermediate keys
+    --> An intermediate key value with the key '0' will be summed up under a final index '0'
+

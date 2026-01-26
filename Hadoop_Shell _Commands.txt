@@ -1,0 +1,70 @@
+# Hadoop Shell commands
+  To check the hadoop version (Version)
+    --> It determine which hadoop version you are using as well as check sums and dates 
+    Syntax:- Hadoop version 
+  
+  To start all process in hadoop (Start)
+    --> It is used to start all process in hadoop
+    Syntax:- $start_all.shape
+  
+  To check the running process in hadoop (JPS)
+    Synatax:- $JPS
+  
+  To stop all process in hadoop (Stop)
+    Synatx:- $stop.shape
+
+  List the content of a directorie (ls)
+    --> This command is used display the files and directions in hadoop
+    Synatx:- hadoop fs_ls
+  
+  Create a directory in HDFS at given path (inkdir)
+    --> This command is used to create directiories along the path
+    Synatx:- hadoop fs_mkdir <paths>
+  
+  To copy the local files into HDFS directory
+    Synatx:- $ mkdir input
+             $ cd    input
+             $ cd    f1.txt 
+  
+  Type some text and press Ctrl + d to exit 
+    Synatx:- $ cd f2.txt 
+  
+  Type some text and press Ctrl + d to exit 
+    Syntax:- $ hdfs dfs put/path/input/f1/newdata/file 1
+             $ hdfs dfs put/path/input/f2/newdata/file 2
+  
+  Upload a file in HDFS (put)
+    --> This command is used to copy single source or multiple source from local file system to the destination file system in HDFS
+    Syntax:- Hadoop fs-put <local src>  <dest>
+     EX:- hadoop fs_put local file 1/user/hadoop
+  
+  Get (download a file from HDFS)
+    --> This command is used to store or download data from HDFS to local file system
+    Synatx:- HDFS fs_get <local src>  <local dist> 
+     EX:- hadoop fs_get/user/hadoop/sampletext1.csv local file
+  
+  Cat 
+    --> This commanf is used to display the content of the HDFS file on your std output
+    Syntax:- HDFS fs_cat <path>
+     EX:- Hadoop fs_cat/user/hadoop/end.text
+  
+  RM (remove)  
+    --> This command is used to delete files from HDFS
+    Synatx:- HDFS fs_rm [-r] <directory_name> 
+     EX:- hadoop fs_rm/user/hadoop texts.txt 
+    --> If the directory has some elements we need to use "rm -r" option to recursively delete all internal elements
+  
+  MV 
+    --> This command is used to move files from source to destination in HDFS
+    Synatax:- hdfs fs_mv <hdfs_src>  <dest>
+     EX:- hdfs fs_mv/user/hadoop/text1.txt/user/hadoop/
+  
+  Count 
+    --> This command is used to count the no.of directories, files inside given directory
+    --> It also shows the file size of the directory
+    Synatx:- hdfs fs_count <path>
+  
+  Tail 
+    --> To display the few lines of a file in hdfs
+    Syntax:- hadoop fs_tail[-f]
+     EX:- hadoop fs_tail/user/hadoop/text1.txt 

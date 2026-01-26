@@ -1,0 +1,45 @@
+# Hadoop Eco systems
+  --> Hadoop ecosystems is a platform or framework which provides various service to solve the Bigdata problems
+  --> Hadoop can be used for many things it is defined in many ways
+  --> They are 
+    1. It is a data management system bringing together large amounts of structured and unstructured data 
+    2. It is a parallel execusion frameworks bringing the power of super commuting
+    3. It is an open source community creating tools and software for soluting bigdata problems 
+  --> Hadoop is an ecosystem compressed of amny compenents that range from data storage, to data integration, to data processing, to specialise tools for data analysis 
+  --> the four components of hadoop ecosystem are shown below
+    1. HDFS 
+      --> A fundational component of the hadoop ecosystem is the HDFS 
+      --> HDFS is the mechanism by which a large amount of data can be distributed over a cluster of computers, and data is written once but read many times for analytics 
+      --> It provides the foundation for other tools such as Hbase 
+    2. Map reduce 
+      --> Hadoop main execution framework is map reduce, a programming model for distributed, parallel data processing, breaking jobs into mapping phase and reduce phase 
+      --> Developers write map reduce jobs for hadoop using data stored in HDFS for fast data accessing 
+      --> Map reduce make it possible to carry over the processing logic and helps to write applications to transform big data sets into a managable one 
+    3. Pig [ Scripting ]
+      --> Pig was basically developed by yahoo which works on a pig latin language, which is query based language similar to SQL
+      --> In pig first the load commands, loads the data, then we perform various functions on it like grouping, Filtering, Joining, Sorting etc,. 
+      --> Atlast either you can dump the data on the screen or you can store the result back in HDFS
+      --> 10 lines of pig latin = approximately 200 lines of map reduce java code
+    4. HBase
+      --> It stores data in HDFS
+      --> It is a noSQL database or non relational database
+      --> It mainly used when you need random, real time, read/write access to your bigdata
+      --> It supports high volume of data and high through put 
+      --> In HBase table can have thousands of columns
+    5. Zoo Keeper [ Centralized service for manafacturing configuration information ] 
+      --> Zoo keeper is hadoop distributed co-ordinate service
+      --> It designed to run over a cluster of machines, it is a highly available service used for the management of hadoop operations, and many components of hadoop depend on it  
+    6. Oozie [ Workflow ]
+      --> Oozie is a work flow or co-ordination system used to manage the hadoop jobs
+      --> There are two kinds of jobs
+      --> That is oozie workflow and oozie co-ordinate jobs
+      --> It is capable of managing events that include timing and presence of required data
+    7. Hive [ SQL Query ]
+      --> An SQL like high level langage used to run queries on data stored in hadoop
+      --> Hive enables developers not femiliar with map reduce to write data queries that are translated into map reduce jobs in hadoop 
+      --> Like pig, hive was developed as an obstraction layer, but generate more towards database analyst more familiar with SQL than java programming 
+    8. Sqoop [ data Collection ]
+      --> It is a tool to design to transfared data between hadoop and relational database servers 
+      --> It is used to import data from relational database such as ORACLE and mySQL to HDFS and export data from HDFS to relational database 
+    9. Flume [ Data Collection ]
+      --> Flume is a distributed, reliable and highly available service for efficiently collecting, aggregating and moving large amounts of data from individual machines to HDFS 

@@ -1,0 +1,48 @@
+# The characteristics (or) features of Hadoop 
+Hadoop: It can handle large volumes of structured and unstructured  data more efficiently than the traditionall enterprise datawarehouse 
+  1. Open source
+    --> Hadoop is an open source project and it can be modified [code] according to the business requirements 
+  2. Distributed Processing 
+    --> A data is stored in a distributed manner in HDFS across the cluster and data is processed in parallel on a cluster of nodes 
+  3. Faster 
+    --> Hadoop is extremely good at high volume batch processing because of its ability to do parallel processing 
+  4. Fault Tolerance 
+    --> The data sent to one individual node and some data also replicates on other nodes in the same cluster
+    --> If the individal node failed to process the data the other nodes in the same cluster available to process the data  
+  5. Reliability
+    --> Due to data replication in the cluster data is reliable store on the cluster of machine even through machine failures
+    --> If the node failed to process the data the data will be stored reliable due to this characterstics of hadoop 
+  6. High Availability 
+    --> Data is highly available and accessable even through hardware failure due to multiple copies of data
+    --> If the machine or hardware crashes then data will be accessed from another path 
+  7. Scalability 
+    --> Hadoop is a highly scalable storage platform as it can store and distribute very large data sets across 100's of systems (or) servers that operate in parallel 
+  8. Flexibility 
+    --> Hadoop manages data whether structured (or) unstructured, encoded (or) formatted (or) any other type of data
+    --> Business can be hadoop to derive valuable business in sides from data source such as social media, E-mail conversations
+    --> Hadoop brings the value to the table where unstructured data can be useful in decision making process
+  9. Cost effective
+    --> Hadoop offers a cost effective storage solutions for business exploding datasets
+    --> Hadoop is not very expensive as it runs on a cluster of relatively in expensive hardware
+  10. Easy to use
+    --> No need of client to deal with distributed computing, the framework takes care of all the things
+    --> So hadoop is easy to use
+
+Job trackers and task trackers
+  --> Job trackers and task trackers are essential process involved in map reduce execution in hadoop version
+  --> Both process are now deprecated in hadoop version 2 and replaced by resource manager and node managers
+  Job trackers
+    -->Job trackers process runs on a seperate node and not usually on a data node
+    --> Job trackers is essential process for map reduce execution in hadoop version 2(MRV2)
+    --> Job trackers receives the requests for map reduce execution from the client
+    --> Job trackers talks to the name node to determine the location of the data
+    --> Job trackers monitors the individual task trackers and submits back the overall status of the job back to the client
+    --> When the job trackers is down, HDFS will still be functional but the map reduce execution cannot be started and the existing map reduce jobs will be stop
+  Task trackers
+    --> Task trackers runs on data node mostly on all data nodes
+    --> Task tracker is replaced by node manager in hadoop version 2
+    --> Mapper and reducers tasks are executed on data nodes administrated by task trackers
+    --> Task trackers will be assigned mapper and reducer tasks to execute ny job trackers
+    --> Task trackers will be in constant communication with the job tracker signaling the progress of the task in execution
+    --> When task tracker becomes unresponsible, then the job tracker will assign the task executed by the task tracker to another node
+
